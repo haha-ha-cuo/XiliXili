@@ -1,0 +1,110 @@
+/* 1. 首先, 清除内外边距, 设置box为border-box <!important> */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-decoration: none;
+}
+
+/* 2. 伪类的属性会从主属性继承, 不用多写 */
+a:hover {
+    color: #888888;
+}
+
+.navguide
+{
+    border-bottom: #ccc 1px solid;
+    box-shadow: #ccc 0px 2px 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.navbar {
+    /* 3. 非必要不使用absolute定位 */
+    /* position: absolute; */
+    width: 100px;
+    height: 200px;
+    box-shadow: 1px 1px 5px #888888;
+    background-color: #ffffff;
+    z-index: 100;
+    /* 9. 一定要先display flex才能使用牙 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* 4. 不可以直接对div盒子使用样式 */
+/* div { */
+.navbox {
+    /* 5. flex伸缩属性尽量不要手动设置 */
+    /* flex: 1; */
+    /* 6. 一般情况下width height可以使用自动挡 */
+    /* width: 40px; */
+    /* height: 40px; */
+    /*background-color: #eee;*/
+    margin: 10 20px;
+    /* 7. 行高应该使用em/rem单位 */
+    line-height: 1.2em;
+    /* 8. 这个属于杂揉了, 这是grid布局的 */
+    /* vertical-align: baseline; */
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.container{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.content
+{
+    margin:5px;
+    box-shadow: 1px 1px 5px #888888;
+    background-color: rgba(214, 237, 247, 0.438);
+    padding: 20px; 
+    border-radius: 10px; 
+    width:256px;
+    height:230px;
+    display:flex;
+}
+
+.navguide input
+{
+    height:2em;
+    padding:5px;
+    border: none;
+    box-shadow: #ccc 1px 1px 5px;
+    border-radius: 10px;
+}
+.input-box{
+    height:100%;
+    margin:5px;
+    padding:5px;
+    display:flex;
+    justify-content: start;
+    align-items: center;
+}
+button{
+    margin:5px;
+    background-color: #ffffff;
+    border:none;
+}
+.input-box img{
+    width: 2em;
+    filter: opacity(100%);
+}
