@@ -14,6 +14,11 @@ if (!$currentUser) {
 
 // 获取用户统计信息
 try {
+    // 确保Database类已经被引入
+    if (!class_exists('Database')) {
+        require_once 'login.php';
+    }
+
     $db = (new Database())->getConnection();
 
     // 获取用户内容统计
