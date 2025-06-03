@@ -40,7 +40,8 @@ define('MAIL_FROM', 'noreply@xilixili.com');
 define('MAIL_FROM_NAME', 'XiliXili');
 
 // 错误报告设置
-if (defined('ENVIRONMENT') && ENVIRONMENT === 'development') {
+define('ENVIRONMENT', 'development'); // 定义环境常量，默认为开发环境
+if (ENVIRONMENT === 'development') {
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 } else {
