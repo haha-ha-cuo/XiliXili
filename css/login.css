@@ -5,17 +5,25 @@
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #f8f8f8;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.login-form{
+    border-radius: 10px;
+    background-color: #ffffff;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px #ccc;
+}
 
-.login-form {
+.login-form-in {
     background-color: #ffffff;
     width: 300px;
     height: 250px;
-    box-shadow: 1px 1px 5px #888888;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -59,4 +67,32 @@ body {
     justify-self: space around;
     align-items: center;
     padding: 5px;
+}
+
+.login-form-up {
+    background-color: #f8f8f8;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.button-box-up {
+    margin: 5px;
+    font-size: larger;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 5px;
+}
+
+.button-box-up:hover {
+    background-color: #ccc;
 }
