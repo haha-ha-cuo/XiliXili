@@ -18,14 +18,13 @@ a:hover {
     color: #888888;
 }
 
-.navguide
-{
+.navguide {
     border-bottom: #ccc 1px solid;
     box-shadow: #ccc 0px 2px 5px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -60,51 +59,52 @@ a:hover {
     /* vertical-align: baseline; */
     align-items: center;
     justify-content: center;
-    padding:5px;
+    padding: 5px;
     background-color: #f8f8f8;
     border-radius: 5px;
 }
 
-.container{
-    display:flex;
+.container {
+    display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
-.content
-{
-    margin:5px;
+.content {
+    margin: 5px;
     box-shadow: 1px 1px 5px #888888;
     background-color: rgba(214, 237, 247, 0.438);
-    padding: 20px; 
-    border-radius: 10px; 
-    width:256px;
-    height:230px;
-    display:flex;
+    padding: 20px;
+    border-radius: 10px;
+    width: 256px;
+    height: 230px;
+    display: flex;
 }
 
-.navguide input
-{
-    height:2em;
-    padding:5px;
+.navguide input {
+    height: 2em;
+    padding: 5px;
     border: none;
     box-shadow: #ccc 1px 1px 5px;
     border-radius: 10px;
 }
-.input-box{
-    height:100%;
-    margin:5px;
-    padding:5px;
-    display:flex;
+
+.input-box {
+    height: 100%;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
     justify-content: start;
     align-items: center;
 }
-button{
-    margin:5px;
+
+button {
+    margin: 5px;
     background-color: #ffffff;
-    border:none;
+    border: none;
 }
-.input-box img{
+
+.input-box img {
     width: 2em;
     filter: opacity(100%);
 }
