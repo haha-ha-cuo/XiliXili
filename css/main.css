@@ -233,50 +233,197 @@
     color: var(--secondary-color);
 }
 
-/* 响应式调整 */
+/* 用户信息显示 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-left: var(--spacing-md);
+}
+
+/* 无内容状态 */
+.no-content {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
+}
+
+.no-content p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+}
+
+/* 分类卡片交互 */
+.category-card {
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 内容卡片元数据 */
+.card-meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+.card-meta .category {
+    background: var(--primary-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: var(--border-radius-xs);
+    font-size: 0.75rem;
+}
+
+/* 加载动画 */
+body {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+/* Hero search form */
+.hero-search {
+    margin: 2rem 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.5rem;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    color: var(--text-primary);
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Hero section action buttons */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-actions .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.hero-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式设计 */
 @media (max-width: 768px) {
-    .nav {
-        padding: var(--spacing-sm);
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-brand {
-        margin-bottom: var(--spacing-sm);
-    }
-
     .nav-links {
-        margin-right: 0;
-        margin-bottom: var(--spacing-sm);
-        width: 100%;
-        overflow-x: auto;
+        display: none;
     }
 
     .search-container {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: var(--spacing-sm);
+        flex: 1;
+        margin: 0 var(--spacing-md);
     }
 
-    .user-actions {
-        width: 100%;
-    }
-
-    .user-actions .btn {
-        width: 100%;
-        text-align: center;
+    .user-info {
+        display: none;
     }
 
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .hero-search {
+        margin: 1.5rem 0;
+        padding: 0 1rem;
+    }
+
+    .search-form {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .search-input {
+        padding: 1rem 1.5rem;
+        text-align: center;
+    }
+
+    .search-btn {
+        padding: 1rem;
+        border-radius: 25px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 250px;
     }
 
     .content-grid {
         grid-template-columns: 1fr;
     }
 
-    .footer-content {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-meta {
         flex-direction: column;
-        padding: var(--spacing-md);
+        gap: var(--spacing-xs);
     }
 }
