@@ -1,10 +1,24 @@
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 
 <body>
-    <div class="login-form">
-        <div class="login-form-in">
+    <div class="container active">
+
+        <div id="SignUpForm" class="container_form container-signup">
+            <h2>Register</h2>
+            <form class="main-form" action="login.php" method="post">
+                <input class="input-box" type="text" name="username" placeholder="Username" required><br>
+                <input class="input-box" type="password" name="password" placeholder="Password" required>
+            </form>
+            <div class="button-box1">
+                <button class="button-box" type="submit" class="login-btn">Register</button>
+                <button class="button-box" type="reset" class="cancel-btn"
+                    onclick="window.location.href='home.html'">Cancel</button>
+            </div>
+        </div>
+        <div id="SignInForm" class="container_form container-signin">
             <h2>Login</h2>
             <form class="main-form" action="login.php" method="post">
                 <input class="input-box" type="text" name="username" placeholder="Username" required><br>
@@ -16,18 +30,23 @@
                     onclick="window.location.href='home.html'">Cancel</button>
             </div>
         </div>
-        <div class="login-form-up">
-            <h2>Register</h2>
-            <form class="main-form" action="login.php" method="post">
-                <input class="input-box" type="text" name="username" placeholder="Username" required><br>
-                <input class="input-box" type="password" name="password" placeholder="Password" required>
-            </form>
-            <div class="button-box1">
-                <button class="button-box-up" type="submit" class="login-btn">Login</button>
-                <button class="button-box-up" type="reset" class="cancel-btn"
-                    onclick="window.location.href='home.html'">Cancel</button>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay_panel overlay-signin">
+                    <div class="button-box1">
+                        <button id="SignIn" class="button-box-ad" type="submit" class="login-btn">Login</button>
+                    </div>
+                </div>
+                <div class="overlay_panel overlay-signup">
+                    <div class="button-box1">
+                        <button id="SignUp" class="button-box-ad" type="submit" class="login-btn">Register</button>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
+    <script src="js/login.js"></script>
 
     <body>
