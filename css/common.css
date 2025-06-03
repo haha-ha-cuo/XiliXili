@@ -1,0 +1,172 @@
+/* 统一风格的通用CSS */
+:root {
+    /* 颜色变量 */
+    --primary-color: #4a6baf; /* 主色调：蓝色 */
+    --secondary-color: #6c757d; /* 次要色调：灰色 */
+    --accent-color: #f8a427; /* 强调色：橙色 */
+    --background-color: #f8f9fa; /* 背景色：浅灰 */
+    --text-color: #333333; /* 文本色：深灰 */
+    --light-color: #ffffff; /* 亮色：白色 */
+    --border-color: #e1e4e8; /* 边框色：浅灰 */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* 阴影色：半透明黑 */
+    
+    /* 字体变量 */
+    --font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --font-size-small: 0.875rem;
+    --font-size-normal: 1rem;
+    --font-size-medium: 1.25rem;
+    --font-size-large: 1.5rem;
+    --font-size-xlarge: 2rem;
+    
+    /* 间距变量 */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* 圆角变量 */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    
+    /* 过渡效果 */
+    --transition-speed: 0.3s;
+}
+
+/* 基础样式重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-normal);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* 通用链接样式 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* 通用按钮样式 */
+button, .btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-normal);
+    transition: background-color var(--transition-speed) ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #3a5999; /* 深一点的主色调 */
+}
+
+/* 输入框通用样式 */
+input, textarea, select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family);
+    font-size: var(--font-size-normal);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 107, 175, 0.25);
+}
+
+/* 卡片样式 */
+.card {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+/* 导航栏通用样式 */
+.nav {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.nav-brand {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: var(--spacing-xl);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-link {
+    margin-right: var(--spacing-lg);
+}
+
+.nav-link a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-link a:hover {
+    color: var(--primary-color);
+}
+
+/* 页脚通用样式 */
+footer {
+    background-color: var(--light-color);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--secondary-color);
+    margin-top: auto;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: var(--spacing-sm);
+    }
+    
+    .nav-brand {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-link {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+        text-align: center;
+    }
+}

@@ -1,62 +1,93 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* 登录页面特定样式 */
 
-body {
-    background-color: #f2f2f2;
+/* 登录容器 */
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: calc(100vh - 140px);
+    /* 减去头部和底部的高度 */
+    padding: var(--spacing-lg);
 }
 
+/* 登录表单卡片 */
 .login-form {
-    background-color: #ffffff;
-    width: 300px;
-    height: 250px;
-    box-shadow: 1px 1px 5px #888888;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 10px;
+    width: 360px;
+    max-width: 100%;
+    padding: var(--spacing-lg);
 }
 
+.login-form h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-size: var(--font-size-xlarge);
+}
+
+/* 表单样式 */
 .main-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    width: 100%;
 }
 
-.button-box {
-    margin: 5px;
-    font-size: larger;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    border-radius: 5px;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 5px;
-}
-
-.button-box:hover {
-    background-color: #f2f2f2;
+.form-group {
+    margin-bottom: var(--spacing-md);
+    width: 100%;
 }
 
 .input-box {
-    border: none;
-    padding: 5px;
-    box-shadow: 1px 1px 5px #888888;
-    border-radius: 3px;
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-normal);
+    transition: all var(--transition-speed) ease;
 }
 
-.button-box1 {
+.input-box:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 107, 175, 0.25);
+}
+
+/* 按钮区域 */
+.form-actions {
     display: flex;
-    justify-self: space around;
-    align-items: center;
-    padding: 5px;
+    justify-content: space-between;
+    margin-top: var(--spacing-lg);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #3a5999;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+    .login-form {
+        width: 100%;
+        padding: var(--spacing-md);
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .btn {
+        width: 100%;
+    }
 }

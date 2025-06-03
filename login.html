@@ -1,19 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - XiliXili</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 
 <body>
-    <div class="login-form">
-        <h2>Login</h2>
-        <form class="main-form" action="login.php" method="post">
-            <input class="input-box" type="text" name="username" placeholder="Username" required><br>
-            <input class="input-box" type="password" name="password" placeholder="Password" required>
-        </form>
-        <div class="button-box1">
-            <button class="button-box" type="submit" class="login-btn">Login</button>
-            <button class="button-box" type="reset" class="cancel-btn"
-                onclick="window.location.href='home.html'">Cancel</button>
-        </div>
-    </div>
+    <header class="nav">
+        <div class="nav-brand">XiliXili</div>
+        <ul class="nav-links">
+            <li class="nav-link"><a href="main.html">首页</a></li>
+            <li class="nav-link"><a href="home.html">个人中心</a></li>
+        </ul>
+    </header>
 
-    <body>
+    <main class="login-container">
+        <div class="login-form card">
+            <h2>登录</h2>
+            <form class="main-form" action="login.php" method="post">
+                <div class="form-group">
+                    <input class="input-box" type="text" name="username" placeholder="用户名" required>
+                </div>
+                <div class="form-group">
+                    <input class="input-box" type="password" name="password" placeholder="密码" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">登录</button>
+                    <button type="reset" class="btn btn-secondary" onclick="window.location.href='home.html'">取消</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 XiliXili. All rights reserved.</p>
+    </footer>
+</body>
+</html>

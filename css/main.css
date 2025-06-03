@@ -1,110 +1,282 @@
-/* 1. 首先, 清除内外边距, 设置box为border-box <!important> */
-* {
-    box-sizing: border-box;
-    margin: 0;
+/* 首页特定样式 */
+
+/* 导航栏增强 */
+.nav {
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    margin-right: auto;
+}
+
+.nav-link a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.search-container {
+    display: flex;
+    margin-right: var(--spacing-lg);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* 主容器 */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* 英雄区域 */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6d8fd8 100%);
+    color: var(--light-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-content p {
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.hero-content .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-medium);
+    background-color: var(--accent-color);
+}
+
+.hero-content .btn:hover {
+    background-color: #e09422;
+}
+
+/* 内容部分 */
+.section-title {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-xlarge);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.featured-section,
+.categories-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 内容卡片网格 */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.content-card {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 3px 10px var(--shadow-color);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-thumbnail {
+    height: 160px;
+    background-color: rgba(74, 107, 175, 0.1);
+    position: relative;
+}
+
+.card-thumbnail::before {
+    content: '视频缩略图';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.card-info {
+    padding: var(--spacing-md);
+}
+
+.card-info h3 {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-medium);
+    color: var(--text-color);
+}
+
+.creator {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary-color);
+    font-size: var(--font-size-small);
+}
+
+/* 分类部分 */
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.category-item {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease;
+    font-weight: 500;
+}
+
+.category-item:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border-color: var(--primary-color);
+}
+
+/* 页脚增强 */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--light-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-section {
+    margin-bottom: var(--spacing-lg);
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-large);
+}
+
+.footer-section h4 {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-medium);
+}
+
+.footer-section p {
+    color: var(--secondary-color);
+}
+
+.footer-section ul {
+    list-style: none;
     padding: 0;
 }
 
-a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    text-decoration: none;
+.footer-section ul li {
+    margin-bottom: var(--spacing-xs);
 }
 
-/* 2. 伪类的属性会从主属性继承, 不用多写 */
-a:hover {
-    color: #888888;
+.footer-section ul li a {
+    color: var(--secondary-color);
+    transition: color var(--transition-speed) ease;
 }
 
-.navguide {
-    border-bottom: #ccc 1px solid;
-    box-shadow: #ccc 0px 2px 5px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+.footer-section ul li a:hover {
+    color: var(--primary-color);
 }
 
-.navbar {
-    /* 3. 非必要不使用absolute定位 */
-    /* position: absolute; */
-    width: 100px;
-    height: 200px;
-    box-shadow: 1px 1px 5px #888888;
-    background-color: #ffffff;
-    z-index: 100;
-    /* 9. 一定要先display flex才能使用牙 */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.footer-bottom {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--background-color);
+    color: var(--secondary-color);
 }
 
-/* 4. 不可以直接对div盒子使用样式 */
-/* div { */
-.navbox {
-    /* 5. flex伸缩属性尽量不要手动设置 */
-    /* flex: 1; */
-    /* 6. 一般情况下width height可以使用自动挡 */
-    /* width: 40px; */
-    /* height: 40px; */
-    /*background-color: #eee;*/
-    margin: 10 20px;
-    /* 7. 行高应该使用em/rem单位 */
-    line-height: 1.2em;
-    /* 8. 这个属于杂揉了, 这是grid布局的 */
-    /* vertical-align: baseline; */
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-}
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .nav {
+        padding: var(--spacing-sm);
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-.container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
+    .nav-brand {
+        margin-bottom: var(--spacing-sm);
+    }
 
-.content {
-    margin: 5px;
-    box-shadow: 1px 1px 5px #888888;
-    background-color: rgba(214, 237, 247, 0.438);
-    padding: 20px;
-    border-radius: 10px;
-    width: 256px;
-    height: 230px;
-    display: flex;
-}
+    .nav-links {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+        width: 100%;
+        overflow-x: auto;
+    }
 
-.navguide input {
-    height: 2em;
-    padding: 5px;
-    border: none;
-    box-shadow: #ccc 1px 1px 5px;
-    border-radius: 10px;
-}
+    .search-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
 
-.input-box {
-    height: 100%;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
+    .user-actions {
+        width: 100%;
+    }
 
-button {
-    margin: 5px;
-    background-color: #ffffff;
-    border: none;
-}
+    .user-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
 
-.input-box img {
-    width: 2em;
-    filter: opacity(100%);
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        padding: var(--spacing-md);
+    }
 }
