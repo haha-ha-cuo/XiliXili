@@ -1,44 +1,13 @@
 <?php
-session_start();
+// 引入统一配置和会话管理
+require_once 'config.php';
+require_once 'includes/session_manager.php';
 
-// 数据库配置
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'xilixili');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+// 初始化会话
+SessionManager::init();
 
-// 安全配置
-define('CSRF_TOKEN_NAME', 'csrf_token');
-define('SESSION_TIMEOUT', 3600); // 1小时
-
-/**
- * 数据库连接类
- */
-class Database
-{
-    private $pdo;
-
-    public function __construct()
-    {
-        try {
-            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
-            $options = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false,
-            ];
-            $this->pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-        } catch (PDOException $e) {
-            error_log("Database connection failed: " . $e->getMessage());
-            die("数据库连接失败");
-        }
-    }
-
-    public function getConnection()
-    {
-        return $this->pdo;
-    }
-}
+// 引入统一的数据库类
+require_once 'includes/database.php';
 
 /**
  * 用户认证类
@@ -49,7 +18,7 @@ class UserAuth
 
     public function __construct()
     {
-        $this->db = (new Database())->getConnection();
+        $this->db = Database::getInstance()->getConnection();
     }
 
     /**
@@ -177,33 +146,7 @@ class UserAuth
     }
 }
 
-/**
- * CSRF保护类
- */
-class CSRFProtection
-{
-    /**
-     * 生成CSRF令牌
-     */
-    public static function generateToken()
-    {
-        if (!isset($_SESSION[CSRF_TOKEN_NAME])) {
-            $_SESSION[CSRF_TOKEN_NAME] = bin2hex(random_bytes(32));
-        }
-        return $_SESSION[CSRF_TOKEN_NAME];
-    }
-
-    /**
-     * 验证CSRF令牌
-     */
-    public static function validateToken($token)
-    {
-        if (!isset($_SESSION[CSRF_TOKEN_NAME])) {
-            return false;
-        }
-        return hash_equals($_SESSION[CSRF_TOKEN_NAME], $token);
-    }
-}
+// CSRF保护类已移至 includes/session_manager.php
 
 // 处理登录请求
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

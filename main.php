@@ -1,9 +1,11 @@
 <?php
-session_start();
-
-// 引入认证相关文件
+// 引入统一会话管理和认证相关文件
+require_once 'includes/session_manager.php';
 require_once 'includes/auth_check.php';
 require_once 'login.php';
+
+// 初始化会话
+SessionManager::init();
 
 // 检查登录状态
 $isLoggedIn = isset($_SESSION['user_id']);
@@ -15,7 +17,7 @@ if ($isLoggedIn) {
 
 // 获取热门内容
 try {
-    $db = (new Database())->getConnection();
+    $db = Database::getInstance()->getConnection();
 
     // 获取热门内容
     $stmt = $db->prepare("

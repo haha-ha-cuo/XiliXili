@@ -5,10 +5,11 @@
  */
 
 require_once 'config.php';
+require_once 'includes/session_manager.php';
 require_once 'includes/auth_check.php';
 
-// 启动会话
-session_start();
+// 初始化会话
+SessionManager::init();
 
 // 数据库连接类
 class Database
@@ -200,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     header('Content-Type: application/json');
 
     try {
-        $database = new Database();
+        $database = Database::getInstance();
         $contentManager = new ContentManager($database);
         $currentUser = getCurrentUser();
 
@@ -226,7 +227,7 @@ if (!$contentId) {
 }
 
 try {
-    $database = new Database();
+    $database = Database::getInstance();
     $contentManager = new ContentManager($database);
 
     // 获取内容详情

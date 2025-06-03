@@ -1,9 +1,11 @@
 <?php
-session_start();
-
-// 引入认证检查
+// 引入统一会话管理和认证检查
+require_once 'includes/session_manager.php';
 require_once 'includes/auth_check.php';
 require_once 'login.php';
+
+// 初始化会话
+SessionManager::init();
 
 // 检查登录状态
 if (!isset($_SESSION['user_id'])) {
@@ -75,7 +77,7 @@ try {
     }
 
     // 保存到数据库
-    $db = (new Database())->getConnection();
+    $db = Database::getInstance()->getConnection();
 
     $stmt = $db->prepare("
         INSERT INTO content (user_id, title, description, file_path, file_type, file_size, category, status) 

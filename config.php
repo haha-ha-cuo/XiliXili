@@ -19,6 +19,7 @@ define('SITE_DESCRIPTION', '发现精彩内容，分享你的创作');
 // 安全配置
 define('CSRF_TOKEN_NAME', 'csrf_token');
 define('SESSION_LIFETIME', 3600 * 24 * 7); // 7天
+define('SESSION_TIMEOUT', 3600 * 24 * 7); // 统一会话超时时间
 
 // 文件上传配置
 define('UPLOAD_DIR', 'uploads/');
@@ -67,24 +68,7 @@ function getSiteUrl($path = '')
     return SITE_URL . ($path ? '/' . ltrim($path, '/') : '');
 }
 
-/**
- * 生成CSRF令牌
- */
-function generateCSRFToken()
-{
-    if (!isset($_SESSION[CSRF_TOKEN_NAME])) {
-        $_SESSION[CSRF_TOKEN_NAME] = bin2hex(random_bytes(32));
-    }
-    return $_SESSION[CSRF_TOKEN_NAME];
-}
-
-/**
- * 验证CSRF令牌
- */
-function verifyCSRFToken($token)
-{
-    return isset($_SESSION[CSRF_TOKEN_NAME]) && hash_equals($_SESSION[CSRF_TOKEN_NAME], $token);
-}
+// CSRF保护功能已移至 includes/session_manager.php
 
 /**
  * 安全的重定向函数

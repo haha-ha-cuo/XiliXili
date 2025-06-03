@@ -5,10 +5,11 @@
  */
 
 require_once 'config.php';
+require_once 'includes/session_manager.php';
 require_once 'includes/auth_check.php';
 
-// 启动会话
-session_start();
+// 初始化会话
+SessionManager::init();
 
 // 数据库连接类
 class Database
@@ -151,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['ajax'])) {
     header('Content-Type: application/json');
 
     try {
-        $database = new Database();
+        $database = Database::getInstance();
         $search = new ContentSearch($database);
 
         $query = $_GET['q'] ?? '';
@@ -193,7 +194,7 @@ $category = $_GET['category'] ?? null;
 $page = max(1, intval($_GET['page'] ?? 1));
 
 try {
-    $database = new Database();
+    $database = Database::getInstance();
     $search = new ContentSearch($database);
 
     // 获取分类列表

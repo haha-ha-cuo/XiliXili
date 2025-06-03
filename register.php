@@ -1,8 +1,10 @@
 <?php
-session_start();
-
-// 引入数据库和认证类
+// 引入统一会话管理、数据库和认证类
+require_once 'includes/session_manager.php';
 require_once 'login.php';
+
+// 初始化会话
+SessionManager::init();
 
 /**
  * 用户注册类
@@ -13,7 +15,7 @@ class UserRegistration
 
     public function __construct()
     {
-        $this->db = (new Database())->getConnection();
+        $this->db = Database::getInstance()->getConnection();
     }
 
     /**

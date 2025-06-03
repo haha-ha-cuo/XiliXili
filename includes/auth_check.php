@@ -5,11 +5,12 @@
  * 用于保护需要登录才能访问的页面
  */
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
+// 引入统一会话管理
+require_once __DIR__ . '/session_manager.php';
 require_once dirname(__DIR__) . '/login.php';
+
+// 初始化会话
+SessionManager::init();
 
 /**
  * 检查用户是否已登录
@@ -42,7 +43,7 @@ function getCurrentUser()
     }
 
     try {
-        $db = (new Database())->getConnection();
+        $db = Database::getInstance()->getConnection();
         $stmt = $db->prepare("SELECT id, username, email, nickname, avatar, status FROM users WHERE id = ?");
         $stmt->execute([$_SESSION['user_id']]);
         return $stmt->fetch();

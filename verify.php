@@ -1,8 +1,10 @@
 <?php
-session_start();
-
-// 引入注册类
+// 引入统一会话管理和注册类
+require_once 'includes/session_manager.php';
 require_once 'register.php';
+
+// 初始化会话
+SessionManager::init();
 
 $message = '';
 $messageType = 'error';
