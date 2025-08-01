@@ -1,8 +1,14 @@
-/* 1. 首先, 清除内外边距, 设置box为border-box <!important> */
+/* 全局样式重置 */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 a {
@@ -13,9 +19,9 @@ a {
     text-decoration: none;
 }
 
-/* 2. 伪类的属性会从主属性继承, 不用多写 */
 a:hover {
-    color: #888888;
+    color: #666;
+    transition: color 0.3s ease;
 }
 
 .navguide {
@@ -28,40 +34,32 @@ a:hover {
     align-items: center;
 }
 
+/* 导航栏样式 */
 .navbar {
-    /* 3. 非必要不使用absolute定位 */
-    /* position: absolute; */
     width: 100px;
     height: 200px;
-    box-shadow: 1px 1px 5px #888888;
-    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
     z-index: 100;
-    /* 9. 一定要先display flex才能使用牙 */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
-/* 4. 不可以直接对div盒子使用样式 */
-/* div { */
 .navbox {
-    /* 5. flex伸缩属性尽量不要手动设置 */
-    /* flex: 1; */
-    /* 6. 一般情况下width height可以使用自动挡 */
-    /* width: 40px; */
-    /* height: 40px; */
-    /*background-color: #eee;*/
-    margin: 10 20px;
-    /* 7. 行高应该使用em/rem单位 */
-    line-height: 1.2em;
-    /* 8. 这个属于杂揉了, 这是grid布局的 */
-    /* vertical-align: baseline; */
+    margin: 0 20px;
+    padding: 8px 16px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    background-color: #f8f8f8;
-    border-radius: 5px;
+}
+
+.navbox:hover {
+    background-color: #e9ecef;
 }
 
 .container {
@@ -105,10 +103,17 @@ button {
     border-radius: 5px;
 }
 
-button:hover{
-    background-color: #cccccc;
+button:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease;
 }
 .input-box img {
     width: 2em;
-    filter: opacity(100%);
+    height: 2em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.input-box img:hover {
+    opacity: 1;
 }
